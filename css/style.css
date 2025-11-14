@@ -1,0 +1,149 @@
+/* ... Todas as seções de 1 a 7 do CSS do Projeto 9 permanecem aqui ... */
+
+/* Exemplo: */
+
+/* ================================================= */
+
+/* 1. ESTILOS GLOBAIS E RESET                        */
+
+/* ================================================= */
+
+html { scroll-behavior: smooth; }
+
+body { /* ... */ }
+
+/* ... etc ... */
+
+ 
+
+/* ================================================= */
+
+/* 2. HEADER E NAVEGAÇÃO (COM UMA PEQUENA MUDANÇA)   */
+
+/* ================================================= */
+
+/* Adicionamos o .container dentro do header no HTML, então agora ele controla
+
+   o espaçamento e alinhamento, tornando o código mais consistente. */
+
+.main-header .container {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 20px; /* Padding que antes estava no header, agora está aqui */
+
+}
+
+/* ... o resto dos estilos do header ... */
+
+ 
+
+ 
+
+/* ================================================= */
+
+/* 8. LÓGICA DO MENU MOBILE (A GRANDE NOVIDADE)      */
+
+/* ================================================= */
+
+ 
+
+/* O botão do menu hamburger. Começa escondido em telas grandes. */
+
+.mobile-menu-icon {
+
+    display: none; /* Escondido por padrão */
+
+    background: none;
+
+    border: none;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+
+    color: var(--cor-escura);
+
+}
+
+ 
+
+/* A MÁGICA DA RESPONSIVIDADE COM MEDIA QUERY */
+
+/*
+
+ * Esta regra diz: "SE a largura da tela for 768px OU MENOS,
+
+ * aplique os seguintes estilos".
+
+ */
+
+@media (max-width: 768px) {
+
+ 
+
+    /* 1. Esconde a navegação de desktop */
+
+    .main-nav ul {
+
+        display: none;
+
+       
+
+        /* Prepara o menu para aparecer como um bloco vertical */
+
+        position: absolute;
+
+        top: 73px; /* Altura do header */
+
+        left: 0;
+
+        width: 100%;
+
+        background-color: var(--cor-branca);
+
+        flex-direction: column;
+
+        text-align: center;
+
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    }
+
+   
+
+    .main-nav ul li {
+
+        padding: 15px 0;
+
+        border-top: 1px solid #f0f0f0;
+
+    }
+
+ 
+
+    /* 2. Mostra o ícone do menu hamburger */
+
+    .mobile-menu-icon {
+
+        display: block;
+
+    }
+
+   
+
+    /* 3. A classe "mágica" que o JavaScript vai adicionar */
+
+    /* Quando a nav tiver a classe .active, a ul dentro dela será mostrada */
+
+    .main-nav.active ul {
+
+        display: flex;
+
+    }
+
+}
